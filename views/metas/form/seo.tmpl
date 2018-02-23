@@ -24,27 +24,6 @@
       {{end}}
     </ul>
 
-    <div class="qor-field">
-      <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield qor-textfield--static-label">
-        <input class="qor-seo-input-field qor-seo-title-field mdl-textfield__input" type="text" id="{{.InputId}}_Title" name="{{.InputName}}.Title" {{if $value}}value="{{$value.Title}}"{{end}} {{if not (has_update_permission .Meta)}}disabled{{end}}>
-        <label class="mdl-textfield__label" for="{{.InputId}}_Title">{{t (printf "%v.title" .BaseResource.ToParam) "HTML Title"}}</label>
-      </div>
-    </div>
-
-    <div class="qor-field">
-      <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield qor-textfield--static-label">
-        <input class="qor-seo-input-field qor-seo-description-field mdl-textfield__input" type="text" id="{{.InputId}}_Description" name="{{.InputName}}.Description" {{if $value}}value="{{$value.Description}}"{{end}} {{if not (has_update_permission .Meta)}}disabled{{end}}>
-        <label class="mdl-textfield__label" for="{{.InputId}}_Description">{{t (printf "%v.description" .BaseResource.ToParam) "Meta Description"}}</label>
-      </div>
-    </div>
-
-    <div class="qor-field">
-      <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield qor-textfield--static-label">
-        <input class="qor-seo-input-field qor-seo-keywords-field mdl-textfield__input" type="text" id="{{.InputId}}_Keywords" name="{{.InputName}}.Keywords" {{if $value}}value="{{$value.Keywords}}"{{end}} {{if not (has_update_permission .Meta)}}disabled{{end}}>
-        <label class="mdl-textfield__label" for="{{.InputId}}_Keywords">{{t (printf "%v.keywords" .BaseResource.ToParam) "Meta Keywords"}}</label>
-      </div>
-    </div>
-
-    <input type="hidden" class="qor-seo-type-field" name="{{.InputName}}.Type" value="{{$value.Type}}"/>
+    {{render_nested_form $value (edit_sections .Meta.Resource) -1}}
   </div>
 </div>

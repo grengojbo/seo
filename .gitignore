@@ -15,6 +15,7 @@ _test
 .sass-cache/
 node_modules/
 *.css.map
+.idea/
 
 *.cgo1.go
 *.cgo2.c
